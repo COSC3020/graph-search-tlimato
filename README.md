@@ -95,7 +95,17 @@ if (!visited_v.has(adj_v)) {
 Create a new path that is at most the length of a number of vertices V and push onto the stack: $O(|V| + 1) = O(|V|)$.
 This results in a worst case of $O(|V| + |E|)$, wherein the Graph is fully connected meaning the worst case is $O(|V| + |E|) = O(|V| + |V^2|)$.
 
-This result is consistent with the definition presented at the beginning of the analysis, therfore my implementation is also consistent.
+This result is consistent with the definition presented at the beginning of the analysis, therefore my implementation is also consistent.
+
+## Logging of Successful test.js File.
+The following test cases are taken from the console output of the test.js file after successfully running. If you are interested, the remaining logs are stored in the test_js_output.txt file provided within this repository.
+
+| Test # | Graph Structure | Test Value | Result |
+|------|------| -----------| -------------|
+|   1  | 1 => [ 4, 4 ], 2 => [ 3 ], 3 => [], 4 => [], 5 => [], 6 => [], 7 => [ 4 ] | Test Value:  4 6 | Returned Value:  []|
+|   2  | 1 => [ 4, 5, 4 ], 2 => [ 5, 1 ], 3 => [ 5, 5 ], 4 => [ 2, 6 ], 5 => [1, 1, 6, 6, 6, 6, 6], 6 => [ 6, 5, 5 ] | Test Value:  4 6 | Returned Value: [ 4, 6 ]|
+|   4  | 1 => [ 8, 10 ], 2 => [ 3, 7, 1 ], 3 => [ 7 ], 4 => [ 6 ], 5 => [ 4, 4 ], 6 => [ 1, 7, 9, 10 ], 7 => [ 9, 6, 9 ], 8 => [ 6 ], 9 => [ 7, 1 ], 10 => [] | Test Value: 5 10 | Returned Value:  [ 5, 4, 6, 10 ]|
+|   10  | 1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [ 1 ], 7 => [ 9 ], 8 => [], 9 => [], 10 => []| Test Value:  9 9 | Returned Value:  [9]|
 
 ## Bonus
 Implement and analyze breadth-first search.
