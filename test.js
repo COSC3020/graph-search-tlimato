@@ -5,6 +5,7 @@
 // April 8th, 2024
 // test.js
 
+// Should be automated with GitHub Actions now.
 const fs = require('fs');
 const jsc = require('jsverify');
 
