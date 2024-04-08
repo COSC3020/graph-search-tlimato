@@ -68,7 +68,7 @@ while (stack.length > 0) {
     ....
 }
 ~~~
-Recursively search and back track until stack is empty which at worst case runs: $O(V)$ times
+Recursively search and backtrack until the stack is empty which worst case runs: $O(|V|)$ times
 ~~~js
 if (current_v === targetNode) {
     return path;
@@ -84,7 +84,7 @@ Add current node to checked: $O(1)$
 ~~~js
 for (const adj_v of graph.adjList.get(current_v)) {
 ~~~
-Iterate through adjacent nodes, where the worst case is that the current node is fully connected to all other nodes: $O(E)$ where $E$ is equal to $V^2$
+Iterate through adjacent nodes, where the worst case is that the current node is fully connected to all other nodes: $O(|E|)$ where $E$ is equal to $|V|^2$
 
 ~~~js
 if (!visited_v.has(adj_v)) {
@@ -92,10 +92,10 @@ if (!visited_v.has(adj_v)) {
     stack.push(n_path);
 }
 ~~~
-Create new path which is at most the length of number of vertices V and push onto stack: $O(V + 1) = O(V)$.
-This results in a worst case of $O(V + E)$, wherein the Graph is fully connected meaning worst case is $O(V + E) = O(V + V^2)$.
+Create a new path that is at most the length of a number of vertices V and push onto the stack: $O(|V| + 1) = O(|V|)$.
+This results in a worst case of $O(|V| + |E|)$, wherein the Graph is fully connected meaning the worst case is $O(|V| + |E|) = O(|V| + |V^2|)$.
 
-This result is consistent with the definition presented at the beggining of the analysis, therfore my implimentation is also consistent.
+This result is consistent with the definition presented at the beginning of the analysis, therfore my implementation is also consistent.
 
 ## Bonus
 Implement and analyze breadth-first search.
