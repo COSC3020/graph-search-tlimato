@@ -3,7 +3,7 @@ name: Property-based Tests
 on:
   push:
     branches:
-      - main
+      - feedback
   pull_request:
     branches:
       - main
@@ -25,4 +25,4 @@ jobs:
       run: npm install
 
     - name: Run tests
-      run: npm test
+      run: node test.js
