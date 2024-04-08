@@ -63,7 +63,7 @@ function depthFirstSearch(graph, startNode, targetNode) {
         for (const adj_v of graph.adjList.get(current_v)) {
             // check to make sure the adjacent node isn't already in the visited set.
             if (!visited_v.has(adj_v)) {
-                const n_path = [...path, adj_v]; // make a new path by adding the adjacent node to the exxsiting path
+                const n_path = [...path, adj_v]; // make a new path by adding the adjacent node to the existing path
                 stack.push(n_path); // push new path to stack
             }
         }
@@ -72,87 +72,3 @@ function depthFirstSearch(graph, startNode, targetNode) {
     return [];
 }
 module.exports = {Directed_Graph, depthFirstSearch};
-
-// TEST CASES:
-function testDPS(){
-// case 1: Very Simple
-const tst_graph = new Directed_Graph();
-tst_graph.addVertex('A');
-tst_graph.addVertex('B');
-tst_graph.addVertex('C');
-tst_graph.addEdge('A', 'B');
-tst_graph.addEdge('A', 'C');
-
-const one_result = depthFirstSearch(tst_graph, 'A', 'C');
-console.log(one_result); // Output: ['A', 'C']
-delete tst_graph;
-delete one_result;
-
-// case 2: Unweighted directional Graph isomorphic with the graph displayed in the Dijkstra's Algorithm lecture
-const Dij_Graph = new Directed_Graph();
-// Add Vertices
-Dij_Graph.addVertex('A');
-Dij_Graph.addVertex('B');
-Dij_Graph.addVertex('C');
-Dij_Graph.addVertex('D');
-Dij_Graph.addVertex('E');
-Dij_Graph.addVertex('F');
-Dij_Graph.addVertex('G');
-Dij_Graph.addVertex('H');
-
-// Add Edges
-//--------------
-// A edges
-Dij_Graph.addEdge('A', 'B');
-Dij_Graph.addEdge('A', 'D');
-Dij_Graph.addEdge('A', 'C');
-// B edges
-Dij_Graph.addEdge('B', 'C');
-Dij_Graph.addEdge('B', 'E');
-Dij_Graph.addEdge('B', 'F');
-// C edges
-Dij_Graph.addEdge('C', 'A');
-Dij_Graph.addEdge('C', 'E');
-// D edges
-Dij_Graph.addEdge('D', 'C');
-// E edges
-Dij_Graph.addEdge('E', 'G');
-Dij_Graph.addEdge('E', 'D');
-// F edges
-Dij_Graph.addEdge('F', 'H');
-// G edges
-Dij_Graph.addEdge('G', 'E');
-Dij_Graph.addEdge('G', 'F');
-// H edges
-Dij_Graph.addEdge('H', 'G');
-
-const two_result = depthFirstSearch(Dij_Graph, 'H', 'B');
-console.log(two_result); // Output: ['H', 'G', 'E', 'D', 'C', 'A', 'B']
-delete Dij_Graph;
-delete two_result;
-
-// Case 3: The desired node isn't in the Graph
-const base_result = depthFirstSearch(Dij_Graph, 'C', 'I');
-console.log(base_result); // Output: []
-delete base_result;
-}
-//-----------------------
-// Call Test Function
-//-----------------------
-// testDPS();
-
-
-// Test Results
-/*
-[Running] node "/home/tyson/Documents/Cosc3020/graph-search-tlimato/graph-search-tlimato/code.js"
-[ 'A', 'C' ] // Pass
-[
-  'H', 'G', 'E',
-  'D', 'C', 'A',
-  'B'
-] //Pass
-[] // Pass
-
-[Done] exited with code=0 in 0.027 seconds
-
-*/
